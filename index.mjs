@@ -1,31 +1,27 @@
 import express from 'express';
-import mongoose from 'mongoose';
-import helmet from 'helmet';
+// import helmet from 'helmet';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
+import authRouter from './src/routes/authRoutes.mjs';
+import roleRouter from './src/routes/roleRoutes.mjs';
+import departmentRouter from './src/routes/departmentRoutes.mjs';
+import employeeRouter from './src/routes/employeeRoutes.mjs';
+
 const app = express();
-app.use(helmet());
+// app.use(helmet());
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose
-  .connect(process.env.DB_URI)
-  .then(() => {
-    console.log('Database is connected');
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
 app.get('/', (req, res) => {
-  res.json({ message: 'Hello from the server' });
+  res.json({ message: 'API is healthy' });
 });
 
-const PORT = process.env.PORT || 5000;
+app.use('/api/auth', authRouter);
+app.use('/api/roles', roleRouter);
+app.use('/api/departments', departmentRouter);
+app.use('/api/employees', employeeRouter);
 
-app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}....`);
-});
+export default app;
