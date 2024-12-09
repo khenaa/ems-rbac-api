@@ -113,7 +113,7 @@ docker-compose down
 | `/api/roles/{id}` | PATCH       | Update a role       |
 | `/api/roles/{id}` | DELETE      | Delete a role       |
 
-Full documentation can be found [here]().
+Full documentation can be found [here](https://documenter.getpostman.com/view/27502083/2sAYBd88LN).
 
 ### Notes
 
