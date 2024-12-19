@@ -1,8 +1,5 @@
-![kenkeputa logo](https://kenkeputa.com/wp-content/uploads/2024/09/Group-1171275090-1.png)
 
 # Employee Management System
-
-## Project Built by: Sampson Ilenikhena
 
 ## Project Description:
 
